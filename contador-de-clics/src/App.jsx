@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import freecodecampLogo from './Imagenes/freecodecamp-logo.svg';
+import Boton from './Componentes/Boton.jsx';
+import Contador from './Componentes/Contador.jsx';
+
+/*Continuar con los Hooks: useState 🟨*/
 
 function App() {
-  const [count, setCount] = useState(0)
+  const manejarClic = () => {
+    console.log('Clic');
+  };
+
+  const reiniciarContador = () => {
+    console.log('Reiniciando contador');
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="App">
+        <div className="freecodecamp-log-contenedor">
+          <img className="freecodecamp-logo" src={freecodecampLogo} alt="Logo de FreeCodeCamp" />
+        </div>
+        <div className="contenedor-principal">
+          <Contador numClics="5" />
+          <Boton texto="Clic" esBotonDeClic={true} manejarClic={manejarClic} />
+          <Boton texto="Reiniciar" esBotonDeClic={false} manejarClic={reiniciarContador} />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
